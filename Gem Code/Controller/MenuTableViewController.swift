@@ -48,8 +48,9 @@ class MenuTableViewController: UITableViewController {
 
          //Configure the cell...
         cell.textLabel?.textAlignment = .center
+        cell.textLabel?.textColor = UIColor.cardColor
         cell.textLabel?.font = UIFont.systemFont(ofSize: 32)
-        
+        cell.backgroundColor = UIColor.background
         if indexPath.item == 0 {
             cell.textLabel?.text = "TRAINING"
         } else if indexPath.item == 1 {

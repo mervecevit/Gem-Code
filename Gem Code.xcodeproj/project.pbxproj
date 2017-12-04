@@ -13,7 +13,7 @@
 		9AACEDC31FD3576F0007F58E /* QuestionWithCodeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AACEDC21FD3576F0007F58E /* QuestionWithCodeCardView.swift */; };
 		9AACEDC51FD359440007F58E /* FinishCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AACEDC41FD359440007F58E /* FinishCardView.swift */; };
 		9AACEDC71FD360300007F58E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AACEDC61FD360300007F58E /* GoogleService-Info.plist */; };
-		9AACEDCA1FD3EAE80007F58E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AACEDC91FD3EAE80007F58E /* Card.swift */; };
+		9AACEDCA1FD3EAE80007F58E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AACEDC91FD3EAE80007F58E /* Models.swift */; };
 		9AACEDD01FD46B0C0007F58E /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AACEDCF1FD46B0C0007F58E /* MenuTableViewController.swift */; };
 		9AACEDD21FD4739B0007F58E /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AACEDD11FD4739B0007F58E /* EpisodeViewController.swift */; };
 		9AD8723D1FD30D450089048E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD8723C1FD30D450089048E /* AppDelegate.swift */; };
@@ -34,7 +34,7 @@
 		9AACEDC21FD3576F0007F58E /* QuestionWithCodeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionWithCodeCardView.swift; sourceTree = "<group>"; };
 		9AACEDC41FD359440007F58E /* FinishCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishCardView.swift; sourceTree = "<group>"; };
 		9AACEDC61FD360300007F58E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		9AACEDC91FD3EAE80007F58E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		9AACEDC91FD3EAE80007F58E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		9AACEDCF1FD46B0C0007F58E /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		9AACEDD11FD4739B0007F58E /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
 		9AD872391FD30D450089048E /* Gem Code.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gem Code.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +77,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9A43A9211FD5D3A500B109B6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9AD8723E1FD30D450089048E /* ViewController.swift */,
+				9AACEDCF1FD46B0C0007F58E /* MenuTableViewController.swift */,
+				9AACEDD11FD4739B0007F58E /* EpisodeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		9AACEDBD1FD351CF0007F58E /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,7 +103,7 @@
 		9AACEDC81FD3EAD50007F58E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9AACEDC91FD3EAE80007F58E /* Card.swift */,
+				9AACEDC91FD3EAE80007F58E /* Models.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,13 +129,11 @@
 		9AD8723B1FD30D450089048E /* Gem Code */ = {
 			isa = PBXGroup;
 			children = (
-				9AACEDC81FD3EAD50007F58E /* Model */,
 				9AD8723C1FD30D450089048E /* AppDelegate.swift */,
-				9AACEDCF1FD46B0C0007F58E /* MenuTableViewController.swift */,
-				9AD8723E1FD30D450089048E /* ViewController.swift */,
 				F272F4191FD49DA2006114F8 /* Extension.swift */,
-				9AACEDD11FD4739B0007F58E /* EpisodeViewController.swift */,
+				9AACEDC81FD3EAD50007F58E /* Model */,
 				9AACEDBD1FD351CF0007F58E /* View */,
+				9A43A9211FD5D3A500B109B6 /* Controller */,
 				9AD872431FD30D450089048E /* Assets.xcassets */,
 				9AD872451FD30D450089048E /* LaunchScreen.storyboard */,
 				9AD872481FD30D450089048E /* Info.plist */,
@@ -274,7 +282,7 @@
 				9AACEDBC1FD3372C0007F58E /* QuestionCardView.swift in Sources */,
 				9AACEDC51FD359440007F58E /* FinishCardView.swift in Sources */,
 				9AACEDC11FD354D10007F58E /* ExecutorCardView.swift in Sources */,
-				9AACEDCA1FD3EAE80007F58E /* Card.swift in Sources */,
+				9AACEDCA1FD3EAE80007F58E /* Models.swift in Sources */,
 				9AACEDC31FD3576F0007F58E /* QuestionWithCodeCardView.swift in Sources */,
 				9AACEDD21FD4739B0007F58E /* EpisodeViewController.swift in Sources */,
 				9AACEDBF1FD352940007F58E /* DescriptionCardView.swift in Sources */,
