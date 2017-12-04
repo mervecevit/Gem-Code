@@ -8,11 +8,12 @@ Two-factor authentication login application.
 ## Requirements
 - Swift 4
 - Xcode 9.0+
-- Firebase
-- ProjectOxfordFace (Microsoft Face API)
+- ZLSwipeableViewSwift
+- UIColor+FlatColors
+- Cartography
 
 ## Usage
-Modify project settings and API functions
+Modify project settings
 
 ### CocoaPods
 
@@ -31,4 +32,4 @@ $ pod install
 ### Change bundle identifier and development team
 <img src="https://firebasestorage.googleapis.com/v0/b/gem-ios-3a8e7.appspot.com/o/Project%20Settings.png?alt=media&token=6eaf3975-2424-46ac-b827-e42e53f9adbc">
 
-Run Gem Code.xcworkspace
+Run ```Gem Code.xcworkspace```
