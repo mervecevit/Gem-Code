@@ -18,6 +18,3 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-
-# Pods Files
-Pods/

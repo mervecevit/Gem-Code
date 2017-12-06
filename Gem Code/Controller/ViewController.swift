@@ -21,25 +21,13 @@ var controlStructures: Episodes?
 
 var episodeNumber: Int?
 var cardsEpisode: Cards?
-class ViewController: UIViewController {
-    
+class ViewController: UIViewController, QuestionCardViewDelegate {
     
     var swipeableView: ZLSwipeableView!
-    
-    var colors = ["Turquoise", "Green Sea", "Emerald", "Nephritis", "Peter River", "Belize Hole", "Amethyst", "Wisteria", "Wet Asphalt", "Midnight Blue", "Sun Flower", "Orange", "Carrot", "Pumpkin", "Alizarin", "Pomegranate", "Clouds", "Silver", "Concrete", "Asbestos"]
+   
     var colorIndex = 0
     
-    var reloadBarButtonItem: UIBarButtonItem!
-    // var reloadBarButtonItem = UIBarButtonItem(barButtonSystemItem: "Reload", target: .Plain) { item in }
-    var leftBarButtonItem: UIBarButtonItem!
-    // var leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: "←", target: .Plain) { item in }
-    var upBarButtonItem: UIBarButtonItem!
-    // var upBarButtonItem = UIBarButtonItem(barButtonSystemItem: "↑", target: .Plain) { item in }
-    var rightBarButtonItem: UIBarButtonItem!
-    // var rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: "→", target: .Plain) { item in }
-    var downBarButtonItem:UIBarButtonItem!
-    // var downBarButtonItem = UIBarButtonItem(barButtonSystemItem: "↓", target: .Plain) { item in }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         swipeableView.nextView = {
@@ -77,7 +65,8 @@ class ViewController: UIViewController {
             print("Did disappear swiping view")
         }
         
-       
+        let questionCardView = QuestionCardView()
+        questionCardView.delegate = self
         
         constrain(swipeableView, view) { view1, view2 in
             view1.left == view2.left+50
@@ -105,52 +94,17 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItem = rBarButtonItem
         
         cardsEpisode = stage?.episodes![episodeNumber!]
+        
     }
     
-    // MARK: - Actions
     
-    @objc func reloadButtonAction() {
-        let alertController = UIAlertController(title: nil, message: "Load Cards:", preferredStyle: .actionSheet)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-            // ...
-        }
-        alertController.addAction(cancelAction)
-        
-        let ProgrammaticallyAction = UIAlertAction(title: "Programmatically", style: .default) { (action) in
-            self.colorIndex = 0
-            self.swipeableView.discardViews()
-            self.swipeableView.loadViews()
-        }
-        alertController.addAction(ProgrammaticallyAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    @objc func leftButtonAction() {
+    func leftButtonAction() {
         self.swipeableView.swipeTopView(inDirection: .Left)
     }
     
-    @objc func upButtonAction() {
-        self.swipeableView.swipeTopView(inDirection: .Up)
-    }
-    
-    @objc func rightButtonAction() {
-        self.swipeableView.swipeTopView(inDirection: .Right)
-    }
-    
-    @objc func downButtonAction() {
-        self.swipeableView.swipeTopView(inDirection: .Down)
-    }
-    
-    // MARK: ()
+
     func nextCardView() -> UIView? {
-//        swipeableView.numberOfActiveView = UInt(colors.count - colorIndex - 1)
-//        swipeableView.numberOfActiveView -= 1
-        
-//        if colorIndex < 0 {
-//            colorIndex = -1
-//        }
+
         if colorIndex == (cardsEpisode?.cards!.count)! - 1 {
             swipeableView.allowedDirection = .None
         } else {
@@ -164,6 +118,7 @@ class ViewController: UIViewController {
             cardView.secondButton.setTitle(cardsEpisode?.cards![colorIndex].answers![1], for: .normal)
             cardView.thirdButton.setTitle(cardsEpisode?.cards![colorIndex].answers![2], for: .normal)
             cardView.forthButton.setTitle(cardsEpisode?.cards![colorIndex].answers![3], for: .normal)
+            cardView.correctAnswerIndex = cardsEpisode?.cards![colorIndex].correctAnswerIndex
             cardView.backgroundColor = UIColor.clear
             colorIndex += 1
             return cardView
@@ -175,6 +130,7 @@ class ViewController: UIViewController {
             cardView.secondButton.setTitle(cardsEpisode?.cards![colorIndex].answers![1], for: .normal)
             cardView.thirdButton.setTitle(cardsEpisode?.cards![colorIndex].answers![2], for: .normal)
             cardView.forthButton.setTitle(cardsEpisode?.cards![colorIndex].answers![3], for: .normal)
+            cardView.correctAnswerIndex = cardsEpisode?.cards![colorIndex].correctAnswerIndex
             cardView.backgroundColor = UIColor.clear
             colorIndex += 1
             return cardView

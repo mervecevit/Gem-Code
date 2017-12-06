@@ -8,7 +8,15 @@
 
 import UIKit
 
+protocol QuestionCardViewDelegate : class{
+    func leftButtonAction()
+}
+
 class QuestionCardView: UIView {
+    var delegate: QuestionCardViewDelegate?
+    
+    var viewController: ViewController?
+    var correctAnswerIndex: Int?
     
     let questionDescriptionLabel: UILabel = {
         let label = UILabel()
@@ -93,6 +101,7 @@ class QuestionCardView: UIView {
     }
     
     func setup() {
+        
         // Shadow
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.25
@@ -153,7 +162,25 @@ class QuestionCardView: UIView {
     }
     
     @objc func handleAnswer(sender: ChoiceButton) {
-        print(sender.choiceValue)
+        if sender.choiceValue != correctAnswerIndex {
+            let alert = UIAlertController(title: "Wrong Answer", message: "Please try again!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                self.window?.rootViewController?.dismiss(animated: true, completion: nil)
+            })
+            alert.addAction(action)
+            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Correct Answer", message: "Keep going!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+//                self.window?.rootViewController?.swipeableView.swipeTopView(inDirection: .Left)
+//                delegate.lef
+//                self.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                self.delegate?.leftButtonAction()
+                
+            })
+            alert.addAction(action)
+            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        }
     }
 }
 

@@ -51,7 +51,8 @@ class EpisodeViewController: UICollectionViewController, UICollectionViewDelegat
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         episodeNumber = indexPath.item
-        navigationController?.pushViewController(ViewController(), animated: true)
+        let vc = ViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

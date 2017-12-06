@@ -10,6 +10,8 @@ import UIKit
 
 class QuestionWithCodeCardView: UIView {
     
+    var correctAnswerIndex: Int?
+    
     let codeLabel: UILabel = {
         let label = UILabel()
         label.text = "print(champion)"
@@ -174,7 +176,22 @@ class QuestionWithCodeCardView: UIView {
     }
     
     @objc func handleAnswer(sender: ChoiceButton) {
-        print(sender.choiceValue)
+        if sender.choiceValue != correctAnswerIndex {
+            let alert = UIAlertController(title: "Wrong Answer", message: "Please try again!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                self.window?.rootViewController?.dismiss(animated: true, completion: nil)
+            })
+            alert.addAction(action)
+            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Correct Answer", message: "Keep going!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                //                self.window?.rootViewController?.swipeableView.swipeTopView(inDirection: .Left)
+                //                delegate.lef
+            })
+            alert.addAction(action)
+            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        }
     }
 }
 
